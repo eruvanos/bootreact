@@ -56,7 +56,7 @@
   "globals": {
     "$": false,
     "React": false,
-    "Reflux": false,
+    "Redux": false,
     "ReactDOM": false,
     "TestUtils": false,
     "_": false

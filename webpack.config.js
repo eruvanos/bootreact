@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 var PROJECT_ROOT = path.join(__dirname, ".");
-var JSX_ROOTFILE = path.join(PROJECT_ROOT, "/src/main/react/js/app.jsx");
+var JSX_ROOTFILE = path.join(PROJECT_ROOT, "/src/main/react/js/app.js");
 var SCSS_ROOT = path.join(PROJECT_ROOT, "/src/main/react/css");
 
 var config = {
@@ -18,7 +18,8 @@ var config = {
       $: "jquery",
       _: "lodash",
       React: "react",
-      ReactDOM: "react-dom"
+      ReactDOM: "react-dom",
+      Redux: "redux"
     })
   ],
 
@@ -36,7 +37,7 @@ var config = {
     loaders: [
       {
         loaders: ["babel-loader"],
-        test: /\.jsx$/,
+        test: /\.js$/,
         exclude: /node_modules/
       },
 

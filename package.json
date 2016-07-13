@@ -2,7 +2,7 @@
   "name": "react-example",
   "version": "1.0.0",
   "description": "",
-  "main": "src/react/app.jsx",
+  "main": "src/react/app.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/karma start --single-run --no-watch --browsers PhantomJS --reporters progress",
     "karma": "NODE_ENV=test ./node_modules/.bin/karma start",
@@ -15,7 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "react": "15.2.1",
-    "react-dom": "15.2.1"
+    "react-dom": "15.2.1",
+    "redux": "3.5.2",
+    "react-redux": "4.4.5"
   },
   "devDependencies": {
     "babel-loader": "6.2.4",
