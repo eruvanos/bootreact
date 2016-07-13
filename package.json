@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/react/app.jsx",
-  "scripts": {},
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/karma start --single-run --no-watch --browsers PhantomJS --reporters progress",
+    "karma": "NODE_ENV=test ./node_modules/.bin/karma start",
+    "watch": "NODE_ENV=development ./node_modules/.bin/webpack --config webpack.config.js --watch",
+    "package": "rm -rf build/resources/public && NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js -p",
+    "package-dev": "rm -rf build/resources/public && NODE_ENV=development ./node_modules/.bin/webpack --config webpack.config.js",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc.json ."
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -11,13 +18,26 @@
     "react-dom": "15.2.1"
   },
   "devDependencies": {
+    "babel-loader": "6.2.4",
     "babel-preset-es2015": "6.9.0",
     "babel-preset-react": "6.11.1",
-    "babelify": "7.3.0",
-    "browserify": "13.0.1",
-    "gulp": "3.9.1",
-    "gulp-sass": "2.3.2",
-    "gulp-watch": "4.3.8",
-    "vinyl-source-stream": "1.1.0"
+    "css-loader": "0.23.1",
+    "eslint": "3.0.1",
+    "eslint-plugin-react": "5.2.2",
+    "file-loader": "0.9.0",
+    "jasmine": "2.4.1",
+    "jasmine-core": "2.4.1",
+    "karma": "0.13.22",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-jasmine": "1.0.2",
+    "karma-jasmine-html-reporter": "0.2.0",
+    "karma-phantomjs-launcher": "1.0.1",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-webpack": "1.7.0",
+    "node-sass": "^3.8.0",
+    "sass-loader": "4.0.0",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1"
   }
 }

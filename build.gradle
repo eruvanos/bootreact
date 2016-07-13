@@ -11,7 +11,6 @@ buildscript {
 }
 
 plugins {
-	id "com.moowork.gulp" version "0.12"
 	id "com.moowork.node" version "0.12"
 }
 
@@ -30,14 +29,28 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '2.2'
 }
 
-// run npm install
-installGulp.dependsOn 'npmInstall'
+node {
+	version = '6.2.2'
+	download = true
+}
 
-// run gulp install
-gulp_default.dependsOn 'installGulp'
 
-// processResources is a Java task. Run the gulpfile.js before this task using the 'default' task in the gulpfile.js
-processResources.dependsOn gulp_default
+clean {
+	doLast {
+		exec { commandLine "rm", "-r", "-f", "node_modules" }
+	}
+}
+
+compileJava.dependsOn "npm_install"
+
+if(System.getenv('NODE_ENV') == "production") {
+	compileJava.dependsOn "npm_run-script_package"
+} else {
+	compileJava.dependsOn "npm_run-script_package-dev"
+}
+
+test.dependsOn "npm_run-script_lint"
+test.dependsOn "npm_test"
 
 jar {
 	baseName = 'boot-react'
