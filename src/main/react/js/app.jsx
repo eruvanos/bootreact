@@ -4,5 +4,5 @@ import HelloWorld from './components/hello-world.jsx';
 
 render(
     <HelloWorld />,
-    document.body
+    document.getElementById('react')
 );
