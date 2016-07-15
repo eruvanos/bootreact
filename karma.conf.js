@@ -15,7 +15,7 @@ module.exports = function (configSetter) {
     logLevel: configSetter.LOG_INFO,
 
     files: [
-      "src/test/react/js/main_spec.js"
+      "src/test/react/js/main.js"
     ],
 
     customLaunchers: {
@@ -31,6 +31,12 @@ module.exports = function (configSetter) {
       "src/test/react/js/**/*.js": ["webpack", "sourcemap"]
     }
   };
+
+  var webpack = require("webpack");
+  webpackConfig.plugins.push(new webpack.ProvidePlugin({
+    TestUtils: "react-addons-test-utils"
+  }));
+
 
   var finalConfig = _.merge(baseConfig, {webpack: webpackConfig});
   configSetter.set(finalConfig);

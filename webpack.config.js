@@ -2,7 +2,8 @@ var path = require("path");
 var webpack = require("webpack");
 
 var PROJECT_ROOT = path.join(__dirname, ".");
-var JSX_ROOTFILE = path.join(PROJECT_ROOT, "/src/main/react/js/app.js");
+var JSX_ROOT = path.join(PROJECT_ROOT, "/src/main/react/js/");
+var JSX_ROOTFILE = path.join(JSX_ROOT, "app.js");
 var SCSS_ROOT = path.join(PROJECT_ROOT, "/src/main/react/css");
 
 var config = {
@@ -19,7 +20,8 @@ var config = {
       _: "lodash",
       React: "react",
       ReactDOM: "react-dom",
-      Redux: "redux"
+      Redux: "redux",
+      ReactRedux: "react-redux"
     })
   ],
 
@@ -32,6 +34,20 @@ var config = {
   },
 
   devtool: (process.env.NODE_ENV === "production" ? "" : "inline-source-map"),
+
+  resolve: {
+    root: path.resolve(JSX_ROOT),
+    extensions: ["", ".js"],
+
+    alias: {
+      "root": path.join(JSX_ROOT, "."),
+      "actions": path.join(JSX_ROOT, "actions"),
+      "components": path.join(JSX_ROOT, "components"),
+      "containers": path.join(JSX_ROOT, "containers"),
+      "reducers": path.join(JSX_ROOT, "reducers"),
+      "constants": path.join(JSX_ROOT, "constants")
+    }
+  },
 
   module: {
     loaders: [
@@ -50,7 +66,7 @@ var config = {
   }
 };
 
-if(process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   var uglifyPlugin = new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false

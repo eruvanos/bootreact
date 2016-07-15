@@ -57,6 +57,7 @@
     "$": false,
     "React": false,
     "Redux": false,
+    "ReactRedux": false,
     "ReactDOM": false,
     "TestUtils": false,
     "_": false
