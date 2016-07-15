@@ -1,16 +1,26 @@
 package de.siemering.example.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("api/counter")
 public class ExampleDataController {
 
+    private long counter = 0;
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public void setCounter(@RequestBody long counter){
+        this.counter = counter;
+    }
+
     @ResponseBody
-    @RequestMapping("helloworld")
-    public String helloWorld(){
-        return "Hello World!";
+    @RequestMapping(method = RequestMethod.GET)
+    public long getCounter(){
+        return counter;
     }
 
 

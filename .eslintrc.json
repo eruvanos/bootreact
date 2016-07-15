@@ -58,6 +58,7 @@
     "React": false,
     "Redux": false,
     "ReactRedux": false,
+    "ReduxThunk": false,
     "ReactDOM": false,
     "TestUtils": false,
     "_": false

@@ -1,4 +1,4 @@
-import {inc} from "actions/counterActions";
+import {inc, pushCounter} from "actions/counterActions";
 import Counter from "components/counter";
 
 const mapStateToProps = (state) => {
@@ -11,6 +11,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onInc: () => {
       dispatch(inc());
+      dispatch(pushCounter());
     }
   };
 };
