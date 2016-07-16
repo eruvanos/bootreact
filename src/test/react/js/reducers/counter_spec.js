@@ -5,12 +5,12 @@ describe("CounterReducer", () => {
 
     it("INCREMENT", function () {
       let action = {"type": "INCREMENT"};
-      expect(CounterReducer(undefined, action)).toEqual({"counter": 1});
+      expect(CounterReducer(undefined, action)).toEqual(1);
     });
 
     it("UNKNOWN", function () {
       let action = {"type": "UNKNOWN"};
-      expect(CounterReducer({"counter": 0}, action)).toEqual({"counter": 0});
+      expect(CounterReducer(0, action)).toEqual(0);
     });
   });
 });
