@@ -2,7 +2,12 @@ export default  React.createClass({
 
   propTypes: {
     onInc: React.PropTypes.func.isRequired,
-    counter: React.PropTypes.number.isRequired
+    counter: React.PropTypes.number.isRequired,
+    didMount: React.PropTypes.func
+  },
+
+  componentDidMount(){
+    if (this.props.didMount)this.props.didMount();
   },
 
   render() {
